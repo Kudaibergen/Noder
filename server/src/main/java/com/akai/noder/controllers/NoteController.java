@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController(value = "/notes")
-public class NoteController extends BaseController {
+@RestController
+@RequestMapping(value = "/api/notes")
+public class NoteController {
 
     private final NoteService noteService;
     private final NoteMapper noteMapper;
@@ -33,7 +35,7 @@ public class NoteController extends BaseController {
         return this.noteService.findAll(pageable);
     }
 
-    @GetMapping(value = "/id")
+    @GetMapping(value = "/{id}")
     public NoteDto get(@PathVariable Long id) throws ResourceNotFoundException {
         return this.noteService.findOne(id).map(this.noteMapper::mapToDto)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Note not found (ID=%d).", id)));
@@ -45,14 +47,16 @@ public class NoteController extends BaseController {
         return this.noteMapper.mapToDto(this.noteService.create(note));
     }
 
-    @PutMapping(value = "/id")
+    @PutMapping(value = "/{id}")
     public NoteDto update(@PathVariable Long id,
                           @RequestBody NoteDto noteDto) throws ResourceNotFoundException {
         this.noteService.findOne(id).orElseThrow(() -> new ResourceNotFoundException(String.format("Note not found (ID=%d).", id)));
-        return this.noteMapper.mapToDto(this.noteService.update(this.noteMapper.mapToEntity(noteDto)));
+        noteDto.setId(id);
+        Note note = this.noteMapper.mapToEntity(noteDto);
+        return this.noteMapper.mapToDto(this.noteService.update(note));
     }
 
-    @DeleteMapping(value = "/id")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Long id) {
         this.noteService.delete(id);
     }
