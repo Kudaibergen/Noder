@@ -11,6 +11,6 @@ import javax.persistence.Table;
 @Table(name = "notes")
 public class Note extends BaseEntity {
 
-    @Column(name = "text")
+    @Column(name = "text", nullable = false)
     private String text;
 }
