@@ -5,13 +5,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.akai.noder.app.ui.BaseFragment;
+import com.akai.noder.app.ui.main.personal.PersonalNoteFragment;
+import com.akai.noder.app.ui.main.secret.SecretNoteFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class ViewPagerAdapter extends FragmentPagerAdapter {
+class MainPagerAdapter extends FragmentPagerAdapter {
     private List<BaseFragment> tabs;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public MainPagerAdapter(FragmentManager fm) {
         super(fm);
         tabs = new ArrayList<>();
 

@@ -1,4 +1,4 @@
-package com.akai.noder.app.ui.main;
+package com.akai.noder.app.ui;
 
 import android.support.v4.app.Fragment;
 
