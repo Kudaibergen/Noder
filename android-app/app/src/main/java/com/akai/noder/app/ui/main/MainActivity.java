@@ -57,8 +57,11 @@ public class MainActivity extends BaseActivity
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.mipmap.ic_nav_menu);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.ic_nav_menu);
+        }
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
