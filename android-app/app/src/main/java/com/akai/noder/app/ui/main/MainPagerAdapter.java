@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.akai.noder.app.ui.BaseFragment;
-import com.akai.noder.app.ui.main.personal.PersonalNoteFragment;
-import com.akai.noder.app.ui.main.secret.SecretNoteFragment;
+import com.akai.noder.app.ui.main.personal.PersonalListFragment;
+import com.akai.noder.app.ui.main.secret.SecretListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,8 @@ class MainPagerAdapter extends FragmentPagerAdapter {
     public MainPagerAdapter(FragmentManager fm) {
         super(fm);
         tabs = new ArrayList<>();
-
-        tabs.add(PersonalNoteFragment.newInstance());
-        tabs.add(SecretNoteFragment.newInstance());
+        tabs.add(PersonalListFragment.newInstance());
+        tabs.add(SecretListFragment.newInstance());
     }
 
     @Override
@@ -30,7 +29,7 @@ class MainPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return tabs.size();
     }
 
     @Nullable

@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.BaseFragment;
 
-public class SecretNoteFragment extends BaseFragment {
+public class SecretListFragment extends BaseFragment {
+    private final static String TAG = "SecretListFragment";
 
-    public static SecretNoteFragment newInstance() {
-        SecretNoteFragment fragment = new SecretNoteFragment();
+    public static SecretListFragment newInstance() {
+        SecretListFragment fragment = new SecretListFragment();
         fragment.setTitle("Fragment 2");
         return fragment;
     }

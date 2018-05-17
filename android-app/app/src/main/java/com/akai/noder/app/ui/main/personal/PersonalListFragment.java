@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.BaseFragment;
 
-public class PersonalNoteFragment extends BaseFragment {
+public class PersonalListFragment extends BaseFragment {
+    private final static String TAG = "PersonalListFragment";
 
-    public static PersonalNoteFragment newInstance() {
-        PersonalNoteFragment fragment = new PersonalNoteFragment();
+    public static PersonalListFragment newInstance() {
+        PersonalListFragment fragment = new PersonalListFragment();
         fragment.setTitle("Fragment 1");
         return fragment;
     }
