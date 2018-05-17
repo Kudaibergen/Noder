@@ -30,7 +30,7 @@ class MainPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return tabs.size();
+        return 2;
     }
 
     @Nullable

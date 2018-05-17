@@ -1,6 +1,7 @@
 package com.akai.noder.app.ui.main;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -9,27 +10,34 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.BaseActivity;
 
 public class MainActivity extends BaseActivity
-        implements MainMvpView,  NavigationView.OnNavigationItemSelectedListener {
+        implements MainMvpView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
 
-    private DrawerLayout drawerLayout;
+    private Toolbar mToolbar;
+    private TabLayout mTabLayout;
+    private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
+    private ViewPager mViewPager;
+    private FloatingActionButton mFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initialViews();
+        setup();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         item.setChecked(true);
-        drawerLayout.closeDrawers();
+        mDrawerLayout.closeDrawers();
         return true;
     }
 
@@ -37,24 +45,58 @@ public class MainActivity extends BaseActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawers();
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawers();
         } else {
             super.onBackPressed();
         }
     }
 
-    private void initialViews() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        switch (tab.getPosition()) {
+            case 0: mFab.setOnClickListener(fabListener1);
+                return;
+            case 1: mFab.setOnClickListener(fabListener2);
+        }
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
+
+    View.OnClickListener fabListener1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Log.e("Acc", "click 1 " + v.getId());
+        }
+    };
+
+    View.OnClickListener fabListener2 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Log.e("Acc", "click 2 " + v.getId());
+        }
+    };
+
+    private void setup() {
+        init();
+        setSupportActionBar(mToolbar);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -63,17 +105,21 @@ public class MainActivity extends BaseActivity
             actionBar.setHomeAsUpIndicator(R.mipmap.ic_nav_menu);
         }
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        mNavigationView.setNavigationItemSelectedListener(this);
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+        mViewPager.setAdapter(pagerAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.addOnTabSelectedListener(this);
+    }
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
-        
+    private void init() {
+        mToolbar = findViewById(R.id.toolbar);
+        mTabLayout = findViewById(R.id.tab_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mFab = findViewById(R.id.fab);
+        mNavigationView = findViewById(R.id.nav_view);
+        mViewPager = findViewById(R.id.view_pager);
     }
 }
