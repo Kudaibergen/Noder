@@ -24,4 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView 
     public ActivityComponent getActivityComponent() {
         return mActivityComponent;
     }
+
+    protected abstract void init();
+
+    protected abstract void setup();
 }

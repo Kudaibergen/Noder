@@ -101,7 +101,8 @@ public class MainActivity extends BaseActivity
         }
     };
 
-    private void setup() {
+    @Override
+    protected void setup() {
         init();
         setSupportActionBar(mToolbar);
 
@@ -120,7 +121,8 @@ public class MainActivity extends BaseActivity
         mTabLayout.addOnTabSelectedListener(this);
     }
 
-    private void init() {
+    @Override
+    protected void init() {
         mToolbar = findViewById(R.id.toolbar);
         mTabLayout = findViewById(R.id.tab_layout);
         mDrawerLayout = findViewById(R.id.drawer_layout);
