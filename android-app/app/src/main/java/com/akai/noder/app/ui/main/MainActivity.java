@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,8 @@ import android.view.View;
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.BaseActivity;
 
+import javax.inject.Inject;
+
 public class MainActivity extends BaseActivity
         implements MainMvpView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
 
@@ -27,10 +30,14 @@ public class MainActivity extends BaseActivity
     private ViewPager mViewPager;
     private FloatingActionButton mFab;
 
+    @Inject
+    FragmentPagerAdapter mPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getActivityComponent().inject(this);
         setup();
     }
 
@@ -106,8 +113,7 @@ public class MainActivity extends BaseActivity
         }
 
         mNavigationView.setNavigationItemSelectedListener(this);
-        MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
-        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));

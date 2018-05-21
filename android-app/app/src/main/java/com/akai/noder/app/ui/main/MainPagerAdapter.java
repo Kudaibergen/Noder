@@ -12,7 +12,7 @@ import com.akai.noder.app.ui.main.secret.SecretListFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-class MainPagerAdapter extends FragmentPagerAdapter {
+public class MainPagerAdapter extends FragmentPagerAdapter {
     private List<BaseFragment> tabs;
 
     public MainPagerAdapter(FragmentManager fm) {
