@@ -25,7 +25,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Contract
         return mActivityComponent;
     }
 
-    protected abstract void setup();
-
     protected abstract void init();
+
+    protected void setup() {
+        init();
+    }
 }
