@@ -21,7 +21,7 @@ import com.akai.noder.app.ui.BaseActivity;
 import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity
-        implements MainMvpView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
+        implements MainContractView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
 
     private Toolbar mToolbar;
     private TabLayout mTabLayout;

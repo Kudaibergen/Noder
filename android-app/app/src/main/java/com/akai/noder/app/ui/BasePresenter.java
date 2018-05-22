@@ -1,4 +1,4 @@
 package com.akai.noder.app.ui;
 
-public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
+public class BasePresenter<V extends ContractView> implements ContractPresenter<V> {
 }
