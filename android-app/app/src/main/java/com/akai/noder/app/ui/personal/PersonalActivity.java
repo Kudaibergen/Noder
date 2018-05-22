@@ -37,7 +37,7 @@ public class PersonalActivity extends BaseActivity {
 
     @Override
     protected void setup() {
-        init();
+        super.setup();
         mButton.setOnClickListener(listenerSend);
     }
 
