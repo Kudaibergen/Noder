@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.BaseFragment;
+import com.akai.noder.app.ui.BaseTabFragment;
 
-public class PersonalListFragment extends BaseFragment {
+public class PersonalListFragment extends BaseTabFragment {
     private final static String TAG = "PersonalListFragment";
 
     public static PersonalListFragment newInstance() {
