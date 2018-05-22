@@ -16,6 +16,7 @@ import android.view.View;
 
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.base.BaseActivity;
+import com.akai.noder.app.ui.personal.PersonalActivity;
 
 import javax.inject.Inject;
 
@@ -38,6 +39,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getActivityComponent().inject(this);
+        mPresenter.onAttach(this);
         setup();
     }
 
@@ -100,6 +102,17 @@ public class MainActivity extends BaseActivity
             mPresenter.fabSecretClick();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.onDetach();
+    }
+
+    @Override
+    public void openPersonalActivity() {
+        startActivity(PersonalActivity.getStartIntent(this));
+    }
 
     @Override
     protected void setup() {
