@@ -20,7 +20,7 @@ import com.akai.noder.app.ui.base.BaseActivity;
 import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity
-        implements MainContractView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
+        implements ContractMainView,  NavigationView.OnNavigationItemSelectedListener, TabLayout.OnTabSelectedListener {
 
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
@@ -30,10 +30,9 @@ public class MainActivity extends BaseActivity
     private FloatingActionButton mFab;
 
     @Inject
-    MainContractPresenter<MainContractView> mPresenter;
+    ContractMainPresenter<ContractMainView> mPresenter;
 
-    @Inject
-    FragmentPagerAdapter mPagerAdapter;
+    @Inject FragmentPagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

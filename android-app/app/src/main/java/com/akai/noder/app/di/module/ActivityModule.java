@@ -4,8 +4,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
 import com.akai.noder.app.di.PerActivity;
-import com.akai.noder.app.ui.main.MainContractPresenter;
-import com.akai.noder.app.ui.main.MainContractView;
+import com.akai.noder.app.ui.main.ContractMainPresenter;
+import com.akai.noder.app.ui.main.ContractMainView;
 import com.akai.noder.app.ui.main.MainPagerAdapter;
 import com.akai.noder.app.ui.main.MainPresenter;
 
@@ -32,7 +32,7 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    MainContractPresenter<MainContractView> provideMainPresenter(MainPresenter<MainContractView> presenter) {
+    ContractMainPresenter<ContractMainView> provideMainPresenter(MainPresenter<ContractMainView> presenter) {
         return presenter;
     }
 }
