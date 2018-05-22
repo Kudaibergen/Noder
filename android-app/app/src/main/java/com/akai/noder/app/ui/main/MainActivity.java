@@ -29,8 +29,7 @@ public class MainActivity extends BaseActivity
     private ViewPager mViewPager;
     private FloatingActionButton mFab;
 
-    @Inject
-    ContractMainPresenter<ContractMainView> mPresenter;
+    @Inject ContractMainPresenter<ContractMainView> mPresenter;
 
     @Inject FragmentPagerAdapter mPagerAdapter;
 
