@@ -21,5 +21,6 @@ public class MainPresenter<V extends ContractMainView> extends BasePresenter<V> 
     @Override
     public void fabSecretClick() {
         Log.e(TAG, "click 1");
+        getContractView().openSecretActivity();
     }
 }

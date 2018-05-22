@@ -17,6 +17,7 @@ import android.view.View;
 import com.akai.noder.app.R;
 import com.akai.noder.app.ui.base.BaseActivity;
 import com.akai.noder.app.ui.personal.PersonalActivity;
+import com.akai.noder.app.ui.secret.SecretActivity;
 
 import javax.inject.Inject;
 
@@ -112,6 +113,11 @@ public class MainActivity extends BaseActivity
     @Override
     public void openPersonalActivity() {
         startActivity(PersonalActivity.getStartIntent(this));
+    }
+
+    @Override
+    public void openSecretActivity() {
+        startActivity(SecretActivity.getStartIntent(this));
     }
 
     @Override
