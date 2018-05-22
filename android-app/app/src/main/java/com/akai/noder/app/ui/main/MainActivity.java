@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -29,6 +28,9 @@ public class MainActivity extends BaseActivity
     private NavigationView mNavigationView;
     private ViewPager mViewPager;
     private FloatingActionButton mFab;
+
+    @Inject
+    MainContractPresenter<MainContractView> mPresenter;
 
     @Inject
     FragmentPagerAdapter mPagerAdapter;
@@ -71,9 +73,9 @@ public class MainActivity extends BaseActivity
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         switch (tab.getPosition()) {
-            case 0: mFab.setOnClickListener(fabListener1);
+            case 0: mFab.setOnClickListener(fabListenerPersonalClick);
                 return;
-            case 1: mFab.setOnClickListener(fabListener2);
+            case 1: mFab.setOnClickListener(fabListenerSecretClick);
         }
     }
 
@@ -87,17 +89,17 @@ public class MainActivity extends BaseActivity
 
     }
 
-    View.OnClickListener fabListener1 = new View.OnClickListener() {
+    View.OnClickListener fabListenerPersonalClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.e("Acc", "click 1 " + v.getId());
+            mPresenter.fabPersonalClick();
         }
     };
 
-    View.OnClickListener fabListener2 = new View.OnClickListener() {
+    View.OnClickListener fabListenerSecretClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.e("Acc", "click 2 " + v.getId());
+            mPresenter.fabSecretClick();
         }
     };
 
