@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.akai.noder.app.R;
-import com.akai.noder.app.ui.BaseFragment;
-import com.akai.noder.app.ui.BaseTabFragment;
+import com.akai.noder.app.ui.base.BaseTabFragment;
 
 public class SecretListFragment extends BaseTabFragment {
     private final static String TAG = "SecretListFragment";

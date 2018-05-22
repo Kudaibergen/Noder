@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.akai.noder.app.ui.BaseFragment;
+import com.akai.noder.app.ui.base.BaseFragment;
 import com.akai.noder.app.ui.main.personal.PersonalListFragment;
 import com.akai.noder.app.ui.main.secret.SecretListFragment;
 

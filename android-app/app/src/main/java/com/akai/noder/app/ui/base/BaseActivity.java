@@ -1,4 +1,4 @@
-package com.akai.noder.app.ui;
+package com.akai.noder.app.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

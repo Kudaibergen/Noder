@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.akai.noder.app.R;
-import com.akai.noder.app.ui.BaseActivity;
+import com.akai.noder.app.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 

@@ -1,6 +1,6 @@
 package com.akai.noder.app.ui.main;
 
-import com.akai.noder.app.ui.BasePresenter;
+import com.akai.noder.app.ui.base.BasePresenter;
 
 public class MainPresenter<V extends MainContractView> extends BasePresenter<V> implements MainContractPresenter<V> {
 }
