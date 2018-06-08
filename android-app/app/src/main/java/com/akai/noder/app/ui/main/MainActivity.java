@@ -138,6 +138,7 @@ public class MainActivity extends BaseActivity
         mViewPager.setOffscreenPageLimit(mTabLayout.getTabCount());
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(this);
+        mFab.setOnClickListener(fabListenerPersonalClick);
     }
 
     @Override
