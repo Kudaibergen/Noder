@@ -1,6 +1,6 @@
 package com.akai.noder.app.ui.base;
 
-public abstract class BasePresenter<V extends ContractView> implements ContractPresenter<V> {
+public abstract class BasePresenter<V extends Contract.View> implements Contract.Presenter<V> {
 
     private V mContractView;
 

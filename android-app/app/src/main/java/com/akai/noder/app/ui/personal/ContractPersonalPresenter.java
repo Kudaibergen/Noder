@@ -1,6 +1,6 @@
 package com.akai.noder.app.ui.personal;
 
-import com.akai.noder.app.ui.base.ContractPresenter;
+import com.akai.noder.app.ui.base.Contract;
 
-public interface ContractPersonalPresenter<V extends ContractPersonalView> extends ContractPresenter<V> {
+public interface ContractPersonalPresenter<V extends ContractPersonalView> extends Contract.Presenter<V> {
 }

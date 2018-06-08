@@ -1,8 +1,8 @@
 package com.akai.noder.app.ui.main;
 
-import com.akai.noder.app.ui.base.ContractView;
+import com.akai.noder.app.ui.base.Contract;
 
-public interface ContractMainView extends ContractView {
+public interface ContractMainView extends Contract.View {
 
     void openPersonalActivity();
 

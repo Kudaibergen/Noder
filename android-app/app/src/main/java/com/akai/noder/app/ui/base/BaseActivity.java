@@ -9,7 +9,7 @@ import com.akai.noder.app.di.component.ActivityComponent;
 import com.akai.noder.app.di.component.DaggerActivityComponent;
 import com.akai.noder.app.di.module.ActivityModule;
 
-public abstract class BaseActivity extends AppCompatActivity implements ContractView {
+public abstract class BaseActivity extends AppCompatActivity implements Contract.View {
     private ActivityComponent mActivityComponent;
 
     @Override
